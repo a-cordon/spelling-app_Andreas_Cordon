@@ -1,0 +1,20 @@
+{
+  "Languages": {
+    "DE": "Deutsch",
+    "EN": "Englisch"
+  },
+  "SettingsPage": {
+    "SETTINGS": "Einstellungen",
+    "LANGUAGE": "Sprache",
+    "MUSIC": "Musik",
+    "SOUND": "Ton",
+    "ON": "An",
+    "OFF": "Aus"
+  },
+  "StartPage": {
+    "SPELLINGAPP": "Buchstabierapp",
+    "PLAY": "Spielen",
+    "HIGHSCORES": "Beste Spiele",
+    "SETTINGS": "Einstellungen"
+  }
+}

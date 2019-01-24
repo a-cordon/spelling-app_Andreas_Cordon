@@ -1,0 +1,42 @@
+<ion-header no-border>
+  <ion-navbar transparent>
+    <button ion-button icon-only menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>{{ 'SettingsPage.SETTINGS' | translate }}</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <ion-item>
+    <ion-label>{{ 'SettingsPage.LANGUAGE' | translate }}</ion-label>
+    <ion-select [(ngModel)]="settingsService.settings.language" interface="popover" (ionChange)="setLanguage($event)"
+                placeholder="{{ 'SettingsPage.PLEASE_CHOOSE' | translate }}">
+      <ion-option *ngFor="let language of languages" value="{{ language.code }}">{{ language.name }}</ion-option>
+    </ion-select>
+  </ion-item>
+
+  <!--TODO: styling-->
+  <ion-item>
+    <ion-label>{{ 'SettingsPage.MUSIC' | translate }}</ion-label>
+    <ion-label [color]="isMusicActive ? 'success' : 'danger'">
+      <ion-icon [name]="isMusicActive ? 'volume-mute' : 'volume-off'"></ion-icon>
+      {{ 'SettingsPage.' + (isMusicActive ? 'ON' : 'OFF') | translate }}
+    </ion-label>
+
+    <!--TODO: checked needs to come from storage-->
+    <ion-toggle item-right [checked]="isMusicActive"
+                (ionChange)="toggleMusic($event.checked)"></ion-toggle>
+  </ion-item>
+
+  <ion-item>
+    <ion-label>{{ 'SettingsPage.SOUND' | translate }}</ion-label>
+    <ion-label [color]="isSoundActive ? 'success' : 'danger'">
+      <ion-icon [name]="isSoundActive ? 'volume-mute' : 'volume-off'"></ion-icon>
+      {{ 'SettingsPage.' + (isSoundActive ? 'ON' : 'OFF') | translate }}
+    </ion-label>
+
+    <ion-toggle item-right [checked]="isSoundActive"
+                (ionChange)="toggleSound($event.checked)"></ion-toggle>
+  </ion-item>
+</ion-content>

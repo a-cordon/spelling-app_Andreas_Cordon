@@ -1,0 +1,45 @@
+<ion-header no-border>
+  <ion-navbar transparent>
+    <ion-title text-center>
+      {{ 'StartPage.SPELLINGAPP' | translate }}
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+<!--TODO: logo?-->
+<!--TODO: styling-->
+
+<ion-content padding>
+  <div class="spellApp-buttonContainer">
+    <button
+      ion-button
+      clear
+      icon-start
+      margin-bottom
+      color="primary">
+      <ion-icon name="play"></ion-icon>
+      {{ 'StartPage.PLAY' | translate }}
+    </button>
+
+    <button
+      ion-button
+      outline
+      icon-start
+      margin-bottom
+      color="primary">
+      <ion-icon name="medal"></ion-icon>
+      {{ 'StartPage.HIGHSCORES' | translate }}
+    </button>
+
+    <button
+      ion-button
+      outline
+      icon-start
+      margin-bottom
+      color="primary"
+      navPush="SettingsPage">
+      <ion-icon name="settings"></ion-icon>
+      {{ 'StartPage.SETTINGS' | translate }}
+    </button>
+  </div>
+</ion-content>

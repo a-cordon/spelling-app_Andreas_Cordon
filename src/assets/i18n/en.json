@@ -1,0 +1,20 @@
+{
+  "Languages": {
+    "DE": "German",
+    "EN": "English"
+  },
+  "SettingsPage": {
+    "SETTINGS": "Settings",
+    "LANGUAGE": "Language",
+    "MUSIC": "Music",
+    "SOUND": "Sound",
+    "ON": "On",
+    "OFF": "Off"
+  },
+  "StartPage": {
+    "SPELLINGAPP": "Spellingapp",
+    "PLAY": "Play",
+    "HIGHSCORES": "Best Games",
+    "SETTINGS": "Settings"
+  }
+}

@@ -1,8 +1,8 @@
 {
   "name": "buchstabierapp",
   "version": "0.0.1",
-  "author": "Ionic Framework",
-  "homepage": "http://ionicframework.com/",
+  "author": "Andreas Cordon",
+  "homepage": "https://www.th-deg.de/de/",
   "private": true,
   "scripts": {
     "start": "ionic-app-scripts serve",
@@ -26,6 +26,9 @@
     "@ionic/storage": "2.2.0",
     "ionic-angular": "3.9.2",
     "ionicons": "3.0.0",
+    "@ngx-translate/core": "^9.1.1",
+    "@ngx-translate/http-loader": "^3.0.1",
+    "cordova-sqlite-storage": "^2.3.3",
     "rxjs": "5.5.11",
     "sw-toolbox": "3.6.0",
     "zone.js": "0.8.26"
