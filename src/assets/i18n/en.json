@@ -16,5 +16,8 @@
     "PLAY": "Play",
     "HIGHSCORES": "Best Games",
     "SETTINGS": "Settings"
+  },
+  "GamePage": {
+    "LEVEL": "Level"
   }
 }
