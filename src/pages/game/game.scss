@@ -1,0 +1,61 @@
+page-game {
+  .spellApp-timerDigitBox {
+    display: flex;
+    justify-content: flex-end;
+    margin: 0 20px;
+    font-size: 18px;
+    color: gray;
+
+    .spellApp-timerLabel {
+      &:first-of-type {
+        padding-left: 8px;
+        padding-right: 2px;
+      }
+
+      &:not(:first-of-type) {
+        padding: 0 2px;
+      }
+    }
+  }
+
+  .spellApp-pointsBox {
+    display: flex;
+    justify-content: flex-end;
+    margin: 16px 20px;
+    font-size: 18px;
+  }
+
+  /*TODO: make box always contain 300x300 pic*/
+  .spellApp-imageBox {
+    display: flex;
+    justify-content: center;
+    margin: 24px;
+
+    img {
+      border-radius: 50%;
+    }
+  }
+
+  .spellApp-actionBox {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    height: 72vh;
+
+    .spellApp-lettersBox {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-evenly;
+      margin: 16px 0;
+
+      .spellApp-singleLetter {
+        border: 2px solid black;
+        border-radius: 8px;
+        text-transform: uppercase;
+        font-weight: bold;
+        font-size: 32px;
+        padding: 8px 12px;
+      }
+    }
+  }
+}

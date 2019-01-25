@@ -16,5 +16,10 @@
     "PLAY": "Play",
     "HIGHSCORES": "Best Games",
     "SETTINGS": "Settings"
+  },
+  "GamePage": {
+    "LEVEL": "Level",
+    "TIME": "Time",
+    "POINTS": "Points"
   }
 }

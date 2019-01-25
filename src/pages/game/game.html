@@ -1,0 +1,28 @@
+<ion-header no-border>
+  <ion-navbar hideBackButton transparent>
+    <ion-title text-center>{{ 'GamePage.LEVEL' | translate }} {{ level }}</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <div class="spellApp-timerDigitBox">
+    <ion-icon name="time"></ion-icon>
+    <span class="spellApp-timerLabel">{{ timer.minutes | twoDigit }}</span> :
+    <span class="spellApp-timerLabel">{{ timer.secondes | twoDigit }}</span>
+  </div>
+  <div class="spellApp-pointsBox">
+    <!--TODO: don't let the label move when points number gets bigger-->
+    {{ 'GamePage.POINTS' | translate }}:
+    {{ points }}
+  </div>
+  <div class="spellApp-actionBox">
+    <div class="spellApp-imageBox">
+      <img src="https://via.placeholder.com/300">
+    </div>
+    <div class="spellApp-lettersBox">
+      <div tappable class="spellApp-singleLetter" *ngFor="let letter of letters">
+        {{ letter }}
+      </div>
+    </div>
+  </div>
+</ion-content>
