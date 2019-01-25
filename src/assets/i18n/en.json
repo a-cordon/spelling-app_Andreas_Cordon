@@ -18,6 +18,8 @@
     "SETTINGS": "Settings"
   },
   "GamePage": {
-    "LEVEL": "Level"
+    "LEVEL": "Level",
+    "TIME": "Time",
+    "POINTS": "Points"
   }
 }
