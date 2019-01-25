@@ -53,8 +53,12 @@ page-game {
         border-radius: 8px;
         text-transform: uppercase;
         font-weight: bold;
+        display: block;
         font-size: 32px;
+        color: black;
         padding: 8px 12px;
+        height: auto;
+        margin: auto;
       }
     }
   }

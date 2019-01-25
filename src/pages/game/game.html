@@ -20,9 +20,14 @@
       <img src="https://via.placeholder.com/300">
     </div>
     <div class="spellApp-lettersBox">
-      <div tappable class="spellApp-singleLetter" *ngFor="let letter of letters">
+      <!--TODO: make color if state.isCorrect = secondary and if state.isIncorrect = danger-->
+      <button
+        ion-button
+        outline
+        class="spellApp-singleLetter"
+        *ngFor="let letter of letters">
         {{ letter }}
-      </div>
+      </button>
     </div>
   </div>
 </ion-content>
