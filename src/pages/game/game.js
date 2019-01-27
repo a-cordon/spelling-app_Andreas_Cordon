@@ -1,14 +1,3 @@
-var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
-    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
-var __metadata = (this && this.__metadata) || function (k, v) {
-    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-};
-import { Component } from '@angular/core';
-import { IonicPage } from 'ionic-angular';
 import { Timer } from "../../models/timer";
 var GamePage = /** @class */ (function () {
     function GamePage() {
@@ -18,49 +7,86 @@ var GamePage = /** @class */ (function () {
         this.possibleLetters = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm',
             'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z', 'ä', 'ö', 'ü'];
         this.timer = new Timer();
+        this.spellWord = 'Ameisenbär';
+        this.letterIndex = 0;
         this.timerPlay();
         this.getLettersArray();
     }
+    /**
+     * Returns the needed letter
+     */
+    GamePage.prototype.getSearchedLetter = function () {
+        return {
+            letter: this.spellWord.charAt(this.letterIndex).toUpperCase(),
+            disabled: false
+        };
+    };
     /*TODO: check if methods are ever used/needed*/
+    /**
+     * Starts the timer
+     */
     GamePage.prototype.timerPlay = function () {
         this.timer.start();
     };
+    /**
+     * Stops the timer
+     */
     GamePage.prototype.timerStop = function () {
         this.timer.stop();
     };
+    /**
+     * Resets the timer
+     */
     GamePage.prototype.timerReset = function () {
         this.timer.reset();
     };
     /*TODO: error handling*/
-    /*TODO: add correct letter*/
+    /**
+     * Creates a shuffled array of the needed letter and 4 random letters
+     */
     GamePage.prototype.getLettersArray = function () {
-        this.spellWord = 'Ameisenbär';
         this.letters = [];
-        var letterIndex = 0;
+        this.letters.push(this.getSearchedLetter());
         var _loop_1 = function () {
-            var searchedLetter = this_1.spellWord.charAt(letterIndex);
-            var randomLetter = this_1.possibleLetters[Math.floor(Math.random() * this_1.possibleLetters.length)];
+            var randomLetter = this_1.possibleLetters[Math.floor(Math.random() * this_1.possibleLetters.length)].toUpperCase();
             var letterExists = !!this_1.letters.find(function (letter) {
-                return randomLetter === letter || searchedLetter === letter;
+                return randomLetter === letter.letter;
             });
-            if (letterExists)
+            if (letterExists || randomLetter === this_1.getSearchedLetter().letter)
                 return "continue";
-            this_1.letters.push(searchedLetter);
-            this_1.letters.push(randomLetter);
+            this_1.letters.push({ letter: randomLetter, disabled: false });
         };
         var this_1 = this;
         do {
             _loop_1();
         } while (this.letters.length < 5);
+        this.shuffleLetterArray(this.letters);
     };
-    GamePage = __decorate([
-        IonicPage(),
-        Component({
-            selector: 'page-game',
-            templateUrl: 'game.html',
-        }),
-        __metadata("design:paramtypes", [])
-    ], GamePage);
+    /**
+     * Shuffles array in place, so the searched letter is not always in first place
+     * @param letters
+     */
+    GamePage.prototype.shuffleLetterArray = function (letters) {
+        var j, x, i;
+        for (i = letters.length - 1; i > 0; i--) {
+            j = Math.floor(Math.random() * (i + 1));
+            x = letters[i];
+            letters[i] = letters[j];
+            letters[j] = x;
+        }
+        return letters;
+    };
+    /*TODO: check if all parameters are needed here*/
+    GamePage.prototype.onLetterClicked = function (event, index, letter) {
+        if (this.getSearchedLetter() === letter) {
+            ++this.points;
+            ++this.letterIndex;
+            this.getLettersArray();
+        }
+        else {
+            --this.points;
+        }
+    };
     return GamePage;
 }());
 export { GamePage };

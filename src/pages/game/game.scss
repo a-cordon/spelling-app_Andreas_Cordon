@@ -48,6 +48,12 @@ page-game {
       justify-content: space-evenly;
       margin: 16px 0;
 
+      button[disabled] {
+        color: red;
+        border-color: red;
+        opacity: 1;
+      }
+
       .spellApp-singleLetter {
         border: 2px solid black;
         border-radius: 8px;

@@ -20,13 +20,16 @@
       <img src="https://via.placeholder.com/300">
     </div>
     <div class="spellApp-lettersBox">
-      <!--TODO: make color if state.isCorrect = secondary and if state.isIncorrect = danger-->
+      <!--TODO: make click color neutral-->
       <button
         ion-button
         outline
+        [disabled]="letter.disabled"
+        [class.disabled]="letter.disabled"
         class="spellApp-singleLetter"
-        *ngFor="let letter of letters">
-        {{ letter }}
+        *ngFor="let letter of letters; let i = index"
+        (click)="onLetterClicked($event, i, letter)">
+        {{ letter.letter }}
       </button>
     </div>
   </div>
