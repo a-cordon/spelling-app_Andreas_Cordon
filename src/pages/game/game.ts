@@ -16,43 +16,68 @@ export class GamePage {
   private readonly possibleLetters: string[] = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm',
     'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z', 'ä', 'ö', 'ü'];
 
+  /*TODO: load word from external file*/
+  private spellWord: string;
+
   private letters: string[];
 
   private timer: Timer = new Timer();
 
   constructor() {
-    this.play();
+    this.timerPlay();
     this.getLettersArray();
   }
 
   /*TODO: check if methods are ever used/needed*/
-  private play(): void {
+  private timerPlay(): void {
     this.timer.start();
   }
 
-  private stop(): void {
+  private timerStop(): void {
     this.timer.stop();
   }
 
-  private reset(): void {
+  private timerReset(): void {
     this.timer.reset();
   }
 
   /*TODO: error handling*/
-  /*TODO: add correct letter*/
   private getLettersArray(): void {
+    this.spellWord = 'Ameisenbär';
     this.letters = [];
+    const letterIndex = 0;
+
+    const searchedLetter: string = this.spellWord.charAt(letterIndex).toUpperCase();
+    this.letters.push(searchedLetter);
 
     do {
-      const randomLetter: string = this.possibleLetters[Math.floor(Math.random() * this.possibleLetters.length)];
+      const randomLetter: string = this.possibleLetters[Math.floor(Math.random() * this.possibleLetters.length)].toUpperCase();
       const letterExists: boolean = !!this.letters.find((letter: string) => {
         return randomLetter === letter;
       });
 
-      if (letterExists)
+      if (letterExists || randomLetter === searchedLetter)
         continue;
 
       this.letters.push(randomLetter);
     } while (this.letters.length < 5);
+
+    this.shuffleLetterArray(this.letters);
+  }
+
+  /**
+   * Shuffles array in place, so the searched letter is not always in first place
+   * @param letters
+   */
+  private shuffleLetterArray(letters: string[]): string[] {
+    let j, x, i;
+
+    for (i = letters.length - 1; i > 0; i--) {
+      j = Math.floor(Math.random() * (i + 1));
+      x = letters[i];
+      letters[i] = letters[j];
+      letters[j] = x;
+    }
+    return letters;
   }
 }
