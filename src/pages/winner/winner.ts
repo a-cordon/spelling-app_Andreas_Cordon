@@ -1,12 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
-
-/**
- * Generated class for the WinnerPage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
+import { IonicPage, NavParams, ViewController } from 'ionic-angular';
 
 @IonicPage()
 @Component({
@@ -15,11 +8,19 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 })
 export class WinnerPage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  private points: number;
+  private minutes: string;
+  private seconds: string;
+
+  constructor(private navParams: NavParams,
+              private viewCtrl: ViewController) {
+    this.points = navParams.get('points');
+    this.minutes = ("0" + navParams.get('timerMinutes')).slice(-2);
+    this.seconds = ("0" + navParams.get('timerSeconds')).slice(-2);
   }
 
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad WinnerPage');
+  dismissModal() {
+    void this.viewCtrl.dismiss();
   }
 
 }

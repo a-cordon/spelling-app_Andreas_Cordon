@@ -133,7 +133,12 @@ export class GamePage {
           ++this.level;
           this.letterIndex = 0;
         } else {
-          void this.modalCtrl.create('WinnerPage').present();
+          this.timerStop();
+          void this.modalCtrl.create('WinnerPage', {
+            points: this.points,
+            timerMinutes: this.timer.minutes,
+            timerSeconds: this.timer.seconds
+          }).present();
         }
       }
       this.getLettersArray();

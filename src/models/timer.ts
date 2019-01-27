@@ -1,22 +1,31 @@
 export class Timer {
 
-  private minutes: number = 0;
-  private secondes: number = 0;
-  private totalSecondes: number = 0;
+  public minutes: number = 0;
+  public seconds: number = 0;
+  private totalSeconds: number = 0;
   private timer;
 
+  /**
+   * Starts the timer
+   */
   start() {
     this.timer = setInterval(() => {
-      this.minutes = Math.floor(++this.totalSecondes / 60);
-      this.secondes = this.totalSecondes - this.minutes * 60;
+      this.minutes = Math.floor(++this.totalSeconds / 60);
+      this.seconds = this.totalSeconds - this.minutes * 60;
     }, 1000);
   }
 
+  /**
+   * Stops the timer
+   */
   stop() {
     clearInterval(this.timer);
   }
 
+  /**
+   * Resets the timer
+   */
   reset() {
-    this.totalSecondes = this.minutes = this.secondes = 0;
+    this.totalSeconds = this.minutes = this.seconds = 0;
   }
 }

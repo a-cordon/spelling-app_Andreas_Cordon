@@ -21,5 +21,8 @@
     "LEVEL": "Level",
     "TIME": "Zeit",
     "POINTS": "Punkte"
+  },
+  "WinnerPage": {
+    "TITLE": "Geschafft!"
   }
 }
