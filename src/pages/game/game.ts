@@ -130,6 +130,7 @@ export class GamePage {
       } else {
         if (this.spellWordIndex !== this.spellWord.length - 1) {
           ++this.spellWordIndex;
+          ++this.level;
           this.letterIndex = 0;
         } else {
           void this.modalCtrl.create('WinnerPage').present();
