@@ -1,12 +1,10 @@
 import { Component } from '@angular/core';
-import { IonicPage } from 'ionic-angular';
+import { IonicPage, ModalController } from 'ionic-angular';
+
+import { Letter } from "../../interfaces/Letter.interface";
+import { SpellWord } from "../../interfaces/SpellWord.interface";
 
 import { Timer } from "../../models/timer";
-
-export interface Letter {
-  letter: string,
-  disabled: boolean
-}
 
 @IonicPage()
 @Component({
@@ -22,16 +20,24 @@ export class GamePage {
     'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z', 'ä', 'ö', 'ü'];
 
   /*TODO: load word from external file*/
-  private spellWord: string;
+  private spellWord: SpellWord[];
+  private spellWordIndex: number;
+
   private letterIndex: number;
 
   private letters: Letter[];
 
   private timer: Timer = new Timer();
 
-  constructor() {
-    this.spellWord = 'Ameisenbär';
+  constructor(private modalCtrl: ModalController) {
+    this.spellWord = [
+      {image: '', spellword: 'a'},
+      {image: '', spellword: 'b'},
+      {image: '', spellword: 'c'},
+      {image: '', spellword: 'd'}
+    ];
 
+    this.spellWordIndex = 0;
     this.letterIndex = 0;
 
     this.timerPlay();
@@ -43,7 +49,7 @@ export class GamePage {
    */
   private getSearchedLetter(): Letter {
     return {
-      letter: this.spellWord.charAt(this.letterIndex).toUpperCase(),
+      letter: this.spellWord[this.spellWordIndex].spellword.charAt(this.letterIndex).toUpperCase(),
       disabled: false
     }
   }
@@ -95,6 +101,7 @@ export class GamePage {
   }
 
   /**
+   * @TODO: keep position of letter if it is a double-letter
    * Shuffles array in place, so the searched letter is not always in first place
    * @param letters
    */
@@ -110,11 +117,24 @@ export class GamePage {
     return letters;
   }
 
-  /*TODO: check if all parameters are needed here*/
-  private onLetterClicked(event, index, letter) {
+  /**
+   * Takes a letter, compares it to the searched letter and initiates further action
+   * @param letter
+   */
+  private onLetterClicked(letter) {
     if (this.getSearchedLetter().letter === letter.letter) {
       ++this.points;
-      ++this.letterIndex;
+
+      if (this.letterIndex !== this.spellWord[this.spellWordIndex].spellword.length - 1) {
+        ++this.letterIndex;
+      } else {
+        if (this.spellWordIndex !== this.spellWord.length - 1) {
+          ++this.spellWordIndex;
+          this.letterIndex = 0;
+        } else {
+          void this.modalCtrl.create('WinnerPage').present();
+        }
+      }
       this.getLettersArray();
     } else {
       letter.disabled = true;

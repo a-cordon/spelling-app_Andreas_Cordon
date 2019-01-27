@@ -28,7 +28,7 @@
         [class.disabled]="letter.disabled"
         class="spellApp-singleLetter"
         *ngFor="let letter of letters; let i = index"
-        (click)="onLetterClicked($event, i, letter)">
+        (click)="onLetterClicked(letter)">
         {{ letter.letter }}
       </button>
     </div>
