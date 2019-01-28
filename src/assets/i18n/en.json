@@ -23,6 +23,10 @@
     "POINTS": "Points"
   },
   "WinnerPage": {
-    "TITLE": "YOU MADE IT!"
+    "TITLE": "YOU MADE IT!",
+    "POINTS": "Points",
+    "TIME": "Time",
+    "NEW_GAME": "New Game",
+    "BACK": "Back to startscreen"
   }
 }

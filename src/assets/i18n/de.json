@@ -23,6 +23,10 @@
     "POINTS": "Punkte"
   },
   "WinnerPage": {
-    "TITLE": "Geschafft!"
+    "TITLE": "Geschafft!",
+    "POINTS": "Punkte",
+    "TIME": "Zeit",
+    "NEW_GAME": "Neues Spiel",
+    "BACK": "Zurück zum Startbildschirm"
   }
 }

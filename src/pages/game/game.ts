@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, ModalController } from 'ionic-angular';
+import { IonicPage, Modal, ModalController, NavController } from 'ionic-angular';
 
 import { Letter } from "../../interfaces/Letter.interface";
 import { SpellWord } from "../../interfaces/SpellWord.interface";
@@ -14,13 +14,16 @@ import { Timer } from "../../models/timer";
 export class GamePage {
 
   private level: number = 1;
+
   private points: number = 0;
+
   /*TODO: initialise possibleLettersArray in constructor and add 'ä', 'ö' and 'ü' only if used language is 'de', OR get fitting letters from externally*/
   private readonly possibleLetters: string[] = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm',
     'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z', 'ä', 'ö', 'ü'];
 
   /*TODO: load word from external file*/
   private spellWord: SpellWord[];
+
   private spellWordIndex: number;
 
   private letterIndex: number;
@@ -29,19 +32,26 @@ export class GamePage {
 
   private timer: Timer = new Timer();
 
-  constructor(private modalCtrl: ModalController) {
+  constructor(private modalCtrl: ModalController,
+              private navCtrl: NavController) {
+    this.spellWordIndex = 0;
+    this.letterIndex = 0;
+
+    this.getSearchedWords();
+    this.timerPlay();
+    this.getLettersArray();
+  }
+
+  /**
+   * Loads the array of searched words with the related image
+   */
+  private getSearchedWords(): void {
     this.spellWord = [
       {image: '', spellword: 'a'},
       {image: '', spellword: 'b'},
       {image: '', spellword: 'c'},
       {image: '', spellword: 'd'}
     ];
-
-    this.spellWordIndex = 0;
-    this.letterIndex = 0;
-
-    this.timerPlay();
-    this.getLettersArray();
   }
 
   /**
@@ -54,7 +64,6 @@ export class GamePage {
     }
   }
 
-  /*TODO: check if methods are ever used/needed*/
   /**
    * Starts the timer
    */
@@ -74,6 +83,13 @@ export class GamePage {
    */
   private timerReset(): void {
     this.timer.reset();
+  }
+
+  /**
+   * Resets the points counter
+   */
+  private resetPoints(): void {
+    this.points = 0;
   }
 
   /*TODO: error handling*/
@@ -121,7 +137,7 @@ export class GamePage {
    * Takes a letter, compares it to the searched letter and initiates further action
    * @param letter
    */
-  private onLetterClicked(letter) {
+  private onLetterClicked(letter): void {
     if (this.getSearchedLetter().letter === letter.letter) {
       ++this.points;
 
@@ -134,11 +150,18 @@ export class GamePage {
           this.letterIndex = 0;
         } else {
           this.timerStop();
-          void this.modalCtrl.create('WinnerPage', {
+          const winnerModal: Modal = this.modalCtrl.create('WinnerPage', {
             points: this.points,
             timerMinutes: this.timer.minutes,
             timerSeconds: this.timer.seconds
-          }).present();
+          });
+          winnerModal.onWillDismiss((newGame: boolean) => {
+            this.timerReset();
+            this.resetPoints();
+
+            newGame === true ? this.navCtrl.setRoot('GamePage') : this.navCtrl.setRoot('StartPage');
+          });
+          void winnerModal.present();
         }
       }
       this.getLettersArray();

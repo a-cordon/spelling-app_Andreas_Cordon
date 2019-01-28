@@ -4,9 +4,29 @@
   </ion-navbar>
 </ion-header>
 
-<ion-content padding>
-  Punkte: {{ points }},
-  Zeit: <span class="spellApp-timerLabel">{{ minutes }}</span> :
-  <span class="spellApp-timerLabel">{{ seconds }}</span>
-  <button ion-button (click)="dismissModal()">Dismiss</button>
+<ion-content padding text-center>
+  <div class="spellApp-statsContainer">
+    <div class="spellApp-winnerPoints" *ngIf="points !== null">
+      {{ 'WinnerPage.POINTS' | translate }}:
+      <div>
+        {{ points }}
+      </div>
+    </div>
+
+    <div class="spellApp-winnerTime" *ngIf="minutes !== null && seconds !== null">
+      {{ 'WinnerPage.TIME' | translate }}:
+      <div>
+        <span class="spellApp-timerLabel">{{ minutes }}</span> :
+        <span class="spellApp-timerLabel">{{ seconds }}</span>
+      </div>
+    </div>
+
+    <div class="spellApp-winnerButtons">
+      <button ion-button outline icon-left (click)="dismissModal(true)">
+        <ion-icon name="play"></ion-icon>
+        {{ 'WinnerPage.NEW_GAME' | translate }}
+      </button>
+      <button ion-button clear (click)="dismissModal()">{{ 'WinnerPage.BACK' | translate }}</button>
+    </div>
+  </div>
 </ion-content>
