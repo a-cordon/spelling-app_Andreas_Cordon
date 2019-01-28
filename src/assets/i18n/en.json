@@ -6,6 +6,7 @@
   "SettingsPage": {
     "SETTINGS": "Settings",
     "LANGUAGE": "Language",
+    "PLEASE_CHOOSE": "Please choose",
     "MUSIC": "Music",
     "SOUND": "Sound",
     "ON": "On",
@@ -19,7 +20,6 @@
   },
   "GamePage": {
     "LEVEL": "Level",
-    "TIME": "Time",
     "POINTS": "Points"
   },
   "WinnerPage": {

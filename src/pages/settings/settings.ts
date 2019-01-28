@@ -12,9 +12,9 @@ export class SettingsPage {
 
   languages: {}[];
 
-  isMusicActive: boolean;
+  isMusicActive: boolean = null;
 
-  isSoundActive: boolean;
+  isSoundActive: boolean = null;
 
   constructor(private translateService: TranslateService,
               public settingsService: SettingsProvider) {
@@ -34,8 +34,8 @@ export class SettingsPage {
       }
     );
 
-    this.isMusicActive = true;
-    this.isSoundActive = true;
+    this.isMusicActive = this.isMusicActive || true;
+    this.isSoundActive = this.isSoundActive || true;
   }
 
   setLanguage(language: string) {
@@ -43,22 +43,20 @@ export class SettingsPage {
   }
 
   /**
-   * @TODO: storage does not work
    * Toggles music and writes it to local storage
    * @param event
    */
   toggleMusic(event: boolean) {
     this.isMusicActive = event;
-    // this.settingsService.save({music: event});
+    this.settingsService.save({music: event});
   }
 
   /**
-   * @TODO: storage does not work
    * Toggles sound and writes it to local storage
    * @param event
    */
   toggleSound(event: boolean) {
     this.isSoundActive = event;
-    // this.settingsService.save({sound: event});
+    this.settingsService.save({sound: event});
   }
 }

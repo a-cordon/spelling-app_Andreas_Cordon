@@ -13,31 +13,31 @@ import { Timer } from "../../models/timer";
 })
 export class GamePage {
 
-  private level: number = 1;
+  public level: number = 1;
 
-  private points: number = 0;
+  public points: number = 0;
 
   /*TODO: initialise possibleLettersArray in constructor and add 'ä', 'ö' and 'ü' only if used language is 'de', OR get fitting letters from externally*/
   private readonly possibleLetters: string[] = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm',
     'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z', 'ä', 'ö', 'ü'];
 
   /*TODO: load word from external file*/
-  private spellWord: SpellWord[];
+  public spellWords: SpellWord[];
 
-  private spellWordIndex: number;
+  public spellWordIndex: number;
 
   private letterIndex: number;
 
-  private letters: Letter[];
+  public letters: Letter[];
 
-  private timer: Timer = new Timer();
+  public timer: Timer = new Timer();
 
   constructor(private modalCtrl: ModalController,
               private navCtrl: NavController) {
     this.spellWordIndex = 0;
     this.letterIndex = 0;
 
-    this.getSearchedWords();
+    this.spellWords = this.shuffleArray(this.getSearchedWords());
     this.timerPlay();
     this.getLettersArray();
   }
@@ -45,12 +45,13 @@ export class GamePage {
   /**
    * Loads the array of searched words with the related image
    */
-  private getSearchedWords(): void {
-    this.spellWord = [
-      {image: '', spellword: 'a'},
-      {image: '', spellword: 'b'},
-      {image: '', spellword: 'c'},
-      {image: '', spellword: 'd'}
+  private getSearchedWords(): SpellWord[] {
+    return [
+      {image: '../../assets/spellword-images/cat.png', spellword: 'Katze'},
+      {image: '../../assets/spellword-images/dog.png', spellword: 'Hund'},
+      {image: '../../assets/spellword-images/mouse.png', spellword: 'Maus'},
+      {image: '../../assets/spellword-images/polar-bear.png', spellword: 'Eisbär'},
+      {image: '../../assets/spellword-images/tiger.png', spellword: 'Tiger'}
     ];
   }
 
@@ -59,7 +60,7 @@ export class GamePage {
    */
   private getSearchedLetter(): Letter {
     return {
-      letter: this.spellWord[this.spellWordIndex].spellword.charAt(this.letterIndex).toUpperCase(),
+      letter: this.spellWords[this.spellWordIndex].spellword.charAt(this.letterIndex).toUpperCase(),
       disabled: false
     }
   }
@@ -113,38 +114,38 @@ export class GamePage {
       this.letters.push({letter: randomLetter, disabled: false});
     } while (this.letters.length < 5);
 
-    this.shuffleLetterArray(this.letters);
+    this.shuffleArray(this.letters);
   }
 
   /**
    * @TODO: keep position of letter if it is a double-letter
-   * Shuffles array in place, so the searched letter is not always in first place
-   * @param letters
+   * Shuffles an array in place
+   * @param array
    */
-  private shuffleLetterArray(letters: Letter[]): Letter[] {
+  private shuffleArray(array) {
     let j, x, i;
 
-    for (i = letters.length - 1; i > 0; i--) {
+    for (i = array.length - 1; i > 0; i--) {
       j = Math.floor(Math.random() * (i + 1));
-      x = letters[i];
-      letters[i] = letters[j];
-      letters[j] = x;
+      x = array[i];
+      array[i] = array[j];
+      array[j] = x;
     }
-    return letters;
+    return array;
   }
 
   /**
    * Takes a letter, compares it to the searched letter and initiates further action
    * @param letter
    */
-  private onLetterClicked(letter): void {
+  public onLetterClicked(letter): void {
     if (this.getSearchedLetter().letter === letter.letter) {
       ++this.points;
 
-      if (this.letterIndex !== this.spellWord[this.spellWordIndex].spellword.length - 1) {
+      if (this.letterIndex !== this.spellWords[this.spellWordIndex].spellword.length - 1) {
         ++this.letterIndex;
       } else {
-        if (this.spellWordIndex !== this.spellWord.length - 1) {
+        if (this.spellWordIndex !== this.spellWords.length - 1) {
           ++this.spellWordIndex;
           ++this.level;
           this.letterIndex = 0;

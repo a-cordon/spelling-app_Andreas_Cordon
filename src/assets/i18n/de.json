@@ -6,6 +6,7 @@
   "SettingsPage": {
     "SETTINGS": "Einstellungen",
     "LANGUAGE": "Sprache",
+    "PLEASE_CHOOSE": "Bitte wählen",
     "MUSIC": "Musik",
     "SOUND": "Ton",
     "ON": "An",
@@ -19,7 +20,6 @@
   },
   "GamePage": {
     "LEVEL": "Level",
-    "TIME": "Zeit",
     "POINTS": "Punkte"
   },
   "WinnerPage": {

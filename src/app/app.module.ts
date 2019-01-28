@@ -32,8 +32,8 @@ export function createTranslateLoader(http: HttpClient) {
     HttpClientModule,
     IonicModule.forRoot(MyApp),
     IonicStorageModule.forRoot({
-      name: 'BuchstabierApp',
-      storeName: 'buchstabierapp1'
+      name: 'SpellingApp',
+      storeName: 'spellingapp1'
     }),
   ],
   bootstrap: [IonicApp],

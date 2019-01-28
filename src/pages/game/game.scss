@@ -8,7 +8,7 @@ page-game {
     justify-content: flex-end;
     margin: 0 20px;
     font-size: 18px;
-    color: gray;
+    color: color($colors, mono);
 
     .spellApp-timerLabel {
       &:first-of-type {
@@ -27,16 +27,21 @@ page-game {
     justify-content: flex-end;
     margin: 16px 20px;
     font-size: 18px;
+
+    &.negative {
+      color: color($colors, danger);
+    }
   }
 
-  /*TODO: make box always contain 300x300 pic*/
   .spellApp-imageBox {
     display: flex;
-    justify-content: center;
-    margin: 24px;
+    align-items: center;
+    height: 300px;
 
     img {
-      border-radius: 50%;
+      max-width: 100%;
+      height: auto;
+      object-fit: contain;
     }
   }
 
@@ -53,19 +58,19 @@ page-game {
       margin: 16px 0;
 
       button[disabled] {
-        color: red;
-        border-color: red;
+        color: color($colors, danger);
+        border-color: color($colors, danger);
         opacity: 1;
       }
 
       .spellApp-singleLetter {
-        border: 2px solid black;
+        border: 2px solid color($colors, dark);
         border-radius: 8px;
         text-transform: uppercase;
         font-weight: bold;
         display: block;
         font-size: 32px;
-        color: black;
+        color: color($colors, dark);
         padding: 8px 12px;
         height: auto;
         margin: auto;

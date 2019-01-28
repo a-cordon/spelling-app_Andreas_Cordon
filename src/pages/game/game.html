@@ -10,14 +10,14 @@
     <span class="spellApp-timerLabel">{{ timer.minutes | twoDigit }}</span> :
     <span class="spellApp-timerLabel">{{ timer.seconds | twoDigit }}</span>
   </div>
-  <div class="spellApp-pointsBox">
+  <div class="spellApp-pointsBox" [class.negative]="points < 0">
     <!--TODO: don't let the label move when points number gets bigger-->
     {{ 'GamePage.POINTS' | translate }}:
     {{ points }}
   </div>
   <div class="spellApp-actionBox">
     <div class="spellApp-imageBox">
-      <img src="https://via.placeholder.com/300">
+      <img [src]="spellWords[spellWordIndex].image">
     </div>
     <div class="spellApp-lettersBox">
       <!--TODO: make click color neutral-->

@@ -8,19 +8,14 @@ import { Settings } from "../../interfaces/Settings.interface";
 @Injectable()
 export class SettingsProvider {
 
-  /*TODO: reset to settings = null if not further needed (because of initial page)*/
-  settings: Settings = {
-    language: 'de',
-    music: true,
-    sound: true
-  };
+  settings: Settings = null;
   private observer: Observer<Settings> = null;
 
   constructor(private storage: Storage) {
   }
 
   /**
-   * Load and observe settings.
+   * Load and observe settings
    * @returns {Observable<Settings>}
    */
   load(): Observable<Settings> {

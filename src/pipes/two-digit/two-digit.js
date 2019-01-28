@@ -15,10 +15,11 @@ var TwoDigitPipe = /** @class */ (function () {
         }
         return this.pad(value, 2, 0);
     };
-    TwoDigitPipe.prototype.pad = function (n, width, z) {
+    TwoDigitPipe.prototype.pad = function (value, width, z) {
         z = z || '0';
-        n = n + '';
-        return n.length >= width ? n : new Array(width - n.length + 1).join(z) + n;
+        // casting value to a string
+        value = value + '';
+        return value.length >= width ? value : new Array(width - value.length + 1).join(z) + value;
     };
     TwoDigitPipe = __decorate([
         Pipe({
