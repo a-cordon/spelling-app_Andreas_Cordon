@@ -26,6 +26,8 @@ export class GamePage {
 
   public spellWordIndex: number;
 
+  public indicateSpellword: string = '';
+
   private letterIndex: number;
 
   public letters: Letter[];
@@ -141,11 +143,13 @@ export class GamePage {
   public onLetterClicked(letter): void {
     if (this.getSearchedLetter().letter === letter.letter) {
       ++this.points;
+      this.indicateSpellword += letter.letter;
 
       if (this.letterIndex !== this.spellWords[this.spellWordIndex].spellword.length - 1) {
         ++this.letterIndex;
       } else {
         if (this.spellWordIndex !== this.spellWords.length - 1) {
+          this.indicateSpellword = '';
           ++this.spellWordIndex;
           ++this.level;
           this.letterIndex = 0;
