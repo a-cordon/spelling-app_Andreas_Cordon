@@ -9,7 +9,7 @@ import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 
-import { MyApp } from './app.component';
+import { SpellingApp } from './app.component';
 import { SettingsProvider } from '../providers/settings/settings';
 
 export function createTranslateLoader(http: HttpClient) {
@@ -18,7 +18,7 @@ export function createTranslateLoader(http: HttpClient) {
 
 @NgModule({
   declarations: [
-    MyApp
+    SpellingApp
   ],
   imports: [
     TranslateModule.forRoot({
@@ -30,7 +30,7 @@ export function createTranslateLoader(http: HttpClient) {
     }),
     BrowserModule,
     HttpClientModule,
-    IonicModule.forRoot(MyApp),
+    IonicModule.forRoot(SpellingApp),
     IonicStorageModule.forRoot({
       name: 'SpellingApp',
       storeName: 'spellingapp1'
@@ -38,7 +38,7 @@ export function createTranslateLoader(http: HttpClient) {
   ],
   bootstrap: [IonicApp],
   entryComponents: [
-    MyApp
+    SpellingApp
   ],
   providers: [
     StatusBar,

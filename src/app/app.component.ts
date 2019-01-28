@@ -9,7 +9,7 @@ import { Settings } from "../interfaces/Settings.interface";
 @Component({
   templateUrl: 'app.html'
 })
-export class MyApp {
+export class SpellingApp {
   rootPage: any = 'StartPage';
 
   constructor(platform: Platform,
