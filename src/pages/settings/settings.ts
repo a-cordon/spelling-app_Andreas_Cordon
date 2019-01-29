@@ -3,6 +3,7 @@ import { IonicPage } from 'ionic-angular';
 import { TranslateService } from "@ngx-translate/core";
 import { SettingsProvider } from "../../providers/settings/settings";
 import { SpellwordProvider } from "../../providers/spellword/spellword";
+import { Settings } from "../../interfaces/Settings.interface";
 
 @IonicPage()
 @Component({
@@ -37,9 +38,15 @@ export class SettingsPage {
       }
     );
 
-    /*TODO: check if bug is fixed*/
-    this.isMusicActive = settingsService.settings.music || true;
-    this.isSoundActive = settingsService.settings.sound || true;
+    settingsService.load().subscribe((settings: Settings) => {
+      if (settings !== null) {
+        this.isMusicActive = settings.music;
+        this.isSoundActive = settings.sound;
+      } else {
+        this.isMusicActive = true;
+        this.isSoundActive = true;
+      }
+    });
   }
 
   setLanguage(language: string) {

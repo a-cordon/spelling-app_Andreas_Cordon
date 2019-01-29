@@ -14,7 +14,7 @@ export class WinnerPage {
 
   public seconds: string;
 
-  constructor(private navParams: NavParams,
+  constructor(navParams: NavParams,
               private viewCtrl: ViewController) {
     this.points = navParams.get('points') || null;
 
