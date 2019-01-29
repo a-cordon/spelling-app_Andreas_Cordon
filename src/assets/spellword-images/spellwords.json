@@ -1,0 +1,22 @@
+[
+  {
+    "image": "../../assets/spellword-images/cat.png",
+    "spellword": "cat"
+  },
+  {
+    "image": "../../assets/spellword-images/dog.png",
+    "spellword": "dog"
+  },
+  {
+    "image": "../../assets/spellword-images/mouse.png",
+    "spellword": "mouse"
+  },
+  {
+    "image": "../../assets/spellword-images/polar-bear.png",
+    "spellword": "polarbear"
+  },
+  {
+    "image": "../../assets/spellword-images/tiger.png",
+    "spellword": "tiger"
+  }
+]

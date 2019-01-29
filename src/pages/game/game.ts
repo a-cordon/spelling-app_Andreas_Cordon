@@ -6,6 +6,7 @@ import { SpellWord } from "../../interfaces/SpellWord.interface";
 
 import { Timer } from "../../models/timer";
 import { TranslateService } from "@ngx-translate/core";
+import { SpellwordProvider } from "../../providers/spellword/spellword";
 
 @IonicPage()
 @Component({
@@ -38,7 +39,8 @@ export class GamePage {
   constructor(private modalCtrl: ModalController,
               private navCtrl: NavController,
               private alertCtrl: AlertController,
-              private translateService: TranslateService) {
+              private translateService: TranslateService,
+              private spellwordService: SpellwordProvider) {
     this.spellWordIndex = 0;
     this.letterIndex = 0;
 
@@ -51,13 +53,7 @@ export class GamePage {
    * Loads the array of searched words with the related image
    */
   private getSearchedWords(): SpellWord[] {
-    return [
-      {image: '../../assets/spellword-images/cat.png', spellword: 'Katze'},
-      {image: '../../assets/spellword-images/dog.png', spellword: 'Hund'},
-      {image: '../../assets/spellword-images/mouse.png', spellword: 'Maus'},
-      {image: '../../assets/spellword-images/polar-bear.png', spellword: 'Eisbär'},
-      {image: '../../assets/spellword-images/tiger.png', spellword: 'Tiger'}
-    ];
+    return this.spellwordService.spellwords;
   }
 
   /**

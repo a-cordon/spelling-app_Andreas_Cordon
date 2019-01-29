@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { IonicPage } from 'ionic-angular';
 import { TranslateService } from "@ngx-translate/core";
 import { SettingsProvider } from "../../providers/settings/settings";
+import { SpellwordProvider } from "../../providers/spellword/spellword";
 
 @IonicPage()
 @Component({
@@ -17,7 +18,8 @@ export class SettingsPage {
   isSoundActive: boolean = null;
 
   constructor(private translateService: TranslateService,
-              public settingsService: SettingsProvider) {
+              public settingsService: SettingsProvider,
+              private spellwordService: SpellwordProvider) {
 
     // Write new languages here to show up on settings-page
     this.translateService.stream('Languages').subscribe(
@@ -42,6 +44,9 @@ export class SettingsPage {
 
   setLanguage(language: string) {
     this.settingsService.save({language});
+
+    // Ensures that language changing also affects the searched words
+    void this.spellwordService.loadSpellwords();
   }
 
   /**

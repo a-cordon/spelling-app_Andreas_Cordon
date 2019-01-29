@@ -3,6 +3,13 @@
     "DE": "Deutsch",
     "EN": "Englisch"
   },
+  "Spellwords": {
+    "CAT": "Katze",
+    "DOG": "Hund",
+    "MOUSE": "Maus",
+    "POLARBEAR": "Eisbär",
+    "TIGER": "Tiger"
+  },
   "SettingsPage": {
     "SETTINGS": "Einstellungen",
     "LANGUAGE": "Sprache",

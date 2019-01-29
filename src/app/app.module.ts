@@ -11,6 +11,7 @@ import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 
 import { SpellingApp } from './app.component';
 import { SettingsProvider } from '../providers/settings/settings';
+import { SpellwordProvider } from "../providers/spellword/spellword";
 
 export function createTranslateLoader(http: HttpClient) {
   return new TranslateHttpLoader(http, './assets/i18n/', '.json');
@@ -44,7 +45,8 @@ export function createTranslateLoader(http: HttpClient) {
     StatusBar,
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
-    SettingsProvider
+    SettingsProvider,
+    SpellwordProvider
   ]
 })
 export class AppModule {
