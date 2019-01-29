@@ -20,7 +20,10 @@
   },
   "GamePage": {
     "LEVEL": "Level",
-    "POINTS": "Punkte"
+    "POINTS": "Punkte",
+    "GAME_PAUSED": "Spiel pausiert",
+    "END_GAME": "Spiel beenden",
+    "RESUME": "Weiter"
   },
   "WinnerPage": {
     "TITLE": "Geschafft!",

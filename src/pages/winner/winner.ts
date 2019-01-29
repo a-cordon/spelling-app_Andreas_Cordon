@@ -8,11 +8,11 @@ import { IonicPage, NavParams, ViewController } from 'ionic-angular';
 })
 export class WinnerPage {
 
-  private points: number;
+  public points: number;
 
-  private minutes: string;
+  public minutes: string;
 
-  private seconds: string;
+  public seconds: string;
 
   constructor(private navParams: NavParams,
               private viewCtrl: ViewController) {
@@ -27,7 +27,7 @@ export class WinnerPage {
    * Closes this overlay and starts a new game if it is set to 'true'
    * @param newGame
    */
-  private dismissModal(newGame: boolean = false): void {
+  public dismissModal(newGame: boolean = false): void {
     void this.viewCtrl.dismiss(newGame);
   }
 

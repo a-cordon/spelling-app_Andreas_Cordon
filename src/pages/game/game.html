@@ -6,9 +6,20 @@
 
 <ion-content padding>
   <div class="spellApp-timerDigitBox">
-    <ion-icon name="time"></ion-icon>
-    <span class="spellApp-timerLabel">{{ timer.minutes | twoDigit }}</span> :
-    <span class="spellApp-timerLabel">{{ timer.seconds | twoDigit }}</span>
+    <div class="spellApp-pauseButton">
+      <button
+        ion-button
+        outline
+        icon-only
+        (click)="pauseGame()">
+        <ion-icon name="pause"></ion-icon>
+      </button>
+    </div>
+    <div>
+      <ion-icon name="time"></ion-icon>
+      <span class="spellApp-timerLabel">{{ timer.minutes | twoDigit }}</span> :
+      <span class="spellApp-timerLabel">{{ timer.seconds | twoDigit }}</span>
+    </div>
   </div>
   <div class="spellApp-pointsBox" [class.negative]="points < 0">
     <!--TODO: don't let the label move when points number gets bigger-->

@@ -1,10 +1,11 @@
 import { Component } from '@angular/core';
-import { IonicPage, Modal, ModalController, NavController } from 'ionic-angular';
+import { AlertController, IonicPage, Modal, ModalController, NavController } from 'ionic-angular';
 
 import { Letter } from "../../interfaces/Letter.interface";
 import { SpellWord } from "../../interfaces/SpellWord.interface";
 
 import { Timer } from "../../models/timer";
+import { TranslateService } from "@ngx-translate/core";
 
 @IonicPage()
 @Component({
@@ -35,7 +36,9 @@ export class GamePage {
   public timer: Timer = new Timer();
 
   constructor(private modalCtrl: ModalController,
-              private navCtrl: NavController) {
+              private navCtrl: NavController,
+              private alertCtrl: AlertController,
+              private translateService: TranslateService) {
     this.spellWordIndex = 0;
     this.letterIndex = 0;
 
@@ -174,5 +177,37 @@ export class GamePage {
       letter.disabled = true;
       --this.points;
     }
+  }
+
+  /**
+   * Shows an alert that lets pause or resume the game
+   */
+  public pauseGame(): void {
+    this.translateService.get('GamePage').toPromise().then(labels => {
+      this.timerStop();
+      const title: string = labels['GAME_PAUSED'];
+
+      void this.alertCtrl.create({
+        title: title.toUpperCase(),
+        buttons: [
+          {
+            text: labels['END_GAME'],
+            cssClass: 'spellApp-pauseAlertButton--red',
+            role: 'cancel',
+            handler: () => {
+              this.timerReset();
+              void this.navCtrl.setRoot('StartPage');
+            }
+          },
+          {
+            text: labels['RESUME'],
+            handler: () => {
+              this.timerPlay();
+            }
+          }
+        ],
+        enableBackdropDismiss: false
+      }).present();
+    });
   }
 }

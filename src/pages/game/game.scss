@@ -5,10 +5,21 @@ page-game {
 
   .spellApp-timerDigitBox {
     display: flex;
-    justify-content: flex-end;
+    align-items: center;
+    justify-content: space-between;
     margin: 0 20px;
     font-size: 18px;
     color: color($colors, mono);
+
+    .spellApp-pauseButton {
+      button {
+        font-size: 1rem;
+        border-radius: 50%;
+        color: color($colors, dark);
+        border-color: color($colors, dark);
+        //background-color: darken(color($colors, light), 30);
+      }
+    }
 
     .spellApp-timerLabel {
       &:first-of-type {

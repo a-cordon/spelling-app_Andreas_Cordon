@@ -10,7 +10,7 @@ import { Settings } from "../interfaces/Settings.interface";
   templateUrl: 'app.html'
 })
 export class SpellingApp {
-  rootPage: any = 'StartPage';
+  rootPage: any = 'GamePage';
 
   constructor(platform: Platform,
               statusBar: StatusBar,

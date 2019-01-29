@@ -19,6 +19,7 @@ export class SettingsPage {
   constructor(private translateService: TranslateService,
               public settingsService: SettingsProvider) {
 
+    // Write new languages here to show up on settings-page
     this.translateService.stream('Languages').subscribe(
       labels => {
         this.languages = [
@@ -34,8 +35,9 @@ export class SettingsPage {
       }
     );
 
-    this.isMusicActive = this.isMusicActive || true;
-    this.isSoundActive = this.isSoundActive || true;
+    /*TODO: check if bug is fixed*/
+    this.isMusicActive = settingsService.settings.music || true;
+    this.isSoundActive = settingsService.settings.sound || true;
   }
 
   setLanguage(language: string) {

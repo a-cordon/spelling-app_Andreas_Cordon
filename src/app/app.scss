@@ -1,5 +1,9 @@
 // http://ionicframework.com/docs/theming/
 
+.spellApp-pauseAlertButton--red {
+  color: color($colors, danger) !important;
+}
+
 
 // App Global Sass
 // --------------------------------------------------
