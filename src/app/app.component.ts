@@ -28,6 +28,7 @@ export class SpellingApp {
 
     platform.ready().then(() => {
 
+      /*TODO: crashes if the language is set to 'en' and the app is closed and restarted*/
       // Ensures that spellwords are already loaded when starting the game
       spellwordService.loadSpellwords();
 
