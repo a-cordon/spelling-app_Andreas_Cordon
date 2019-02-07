@@ -23,7 +23,6 @@ export class GamePage {
   private readonly possibleLetters: string[] = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm',
     'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z', 'ä', 'ö', 'ü'];
 
-  /*TODO: load word from external file*/
   public spellWords: SpellWord[];
 
   public spellWordIndex: number;

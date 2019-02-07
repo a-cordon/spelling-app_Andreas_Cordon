@@ -21,7 +21,6 @@
       {{ 'SettingsPage.' + (isMusicActive ? 'ON' : 'OFF') | translate }}
     </ion-label>
 
-    <!--TODO: checked needs to come from storage-->
     <ion-toggle item-right [checked]="isMusicActive"
                 (ionChange)="toggleMusic($event.checked)"></ion-toggle>
   </ion-item>
