@@ -12,6 +12,7 @@ import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { SpellingApp } from './app.component';
 import { SettingsProvider } from '../providers/settings/settings';
 import { SpellwordProvider } from "../providers/spellword/spellword";
+import { BestGamesProvider } from '../providers/best-games/best-games';
 
 export function createTranslateLoader(http: HttpClient) {
   return new TranslateHttpLoader(http, './assets/i18n/', '.json');
@@ -46,7 +47,8 @@ export function createTranslateLoader(http: HttpClient) {
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     SettingsProvider,
-    SpellwordProvider
+    SpellwordProvider,
+    BestGamesProvider
   ]
 })
 export class AppModule {

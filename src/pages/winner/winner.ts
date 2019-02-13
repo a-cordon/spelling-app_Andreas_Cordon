@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavParams, ViewController } from 'ionic-angular';
+import { BestGamesProvider } from "../../providers/best-games/best-games";
+import { BestGame } from "../../interfaces/BestGame.interface";
 
 @IonicPage()
 @Component({
@@ -15,7 +17,8 @@ export class WinnerPage {
   public seconds: string;
 
   constructor(navParams: NavParams,
-              private viewCtrl: ViewController) {
+              private viewCtrl: ViewController,
+              private bestGamesService: BestGamesProvider) {
     this.points = navParams.get('points') || null;
 
     // Ensures that the time is always shown with two digits
@@ -24,11 +27,25 @@ export class WinnerPage {
   }
 
   /**
-   * Closes this overlay and starts a new game if it is set to 'true'
+   * Closes this overlay and starts a new game if it is set to 'true',
+   * also saves the game to the Best Games list
+   *
+   * The time is saved as a number, where the first two indexes are the minutes
+   * and the last two indexes are the seconds, i.e.
+   * 22 -> 22 Seconds
+   * 105 -> 1 Minute 05 Seconds
+   * 1253 -> 12 Minutes 53 Seconds
    * @param newGame
    */
   public dismissModal(newGame: boolean = false): void {
-    void this.viewCtrl.dismiss(newGame);
+    const bestGame: BestGame = {
+      time: Number.parseFloat(this.minutes + this.seconds),
+      points: this.points
+    };
+
+    this.bestGamesService.saveToBestGame(bestGame).then(() => {
+      void this.viewCtrl.dismiss(newGame);
+    });
   }
 
 }

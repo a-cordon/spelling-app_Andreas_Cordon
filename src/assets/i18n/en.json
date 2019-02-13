@@ -38,5 +38,13 @@
     "TIME": "Time",
     "NEW_GAME": "New Game",
     "BACK": "Back to startscreen"
+  },
+  "BestGamesPage": {
+    "TITLE": "Best Games",
+    "NO_BEST_GAMES": "No games played",
+    "RESET_GAMES": "Delete highscores",
+    "CONFIRM_DELETE": "Really delete all games?",
+    "DELETE_BEST_GAMES": "Delete",
+    "ABORT_DELETE": "Cancel"
   }
 }

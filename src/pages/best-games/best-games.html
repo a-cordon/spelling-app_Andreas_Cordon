@@ -1,0 +1,31 @@
+<ion-header no-border>
+  <ion-navbar transparent>
+    <ion-title>{{ 'BestGamesPage.TITLE' | translate }}</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding text-center>
+  <ng-container *ngIf="bestGames.length <= 0">
+    <div class="spellApp-bestGamesPage--empty">
+      {{ 'BestGamesPage.NO_BEST_GAMES' | translate }}
+    </div>
+  </ng-container>
+
+  <ion-list>
+    <ion-item *ngFor="let bestGame of bestGames; let i = index">
+      <span>{{ i + 1 }}.</span>
+      <span>{{ 'WinnerPage.POINTS' | translate }}: {{ bestGame.points }}</span>
+      <span>{{ 'WinnerPage.TIME' | translate }}: {{ bestGame.time }}</span>
+    </ion-item>
+  </ion-list>
+
+  <button
+    ion-button
+    icon-left
+    color="danger"
+    *ngIf="bestGames.length > 0"
+    (click)="resetBestGames()">
+    <ion-icon name="trash"></ion-icon>
+    {{ 'BestGamesPage.RESET_GAMES' | translate }}
+  </button>
+</ion-content>

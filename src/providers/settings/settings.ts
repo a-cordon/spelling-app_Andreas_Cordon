@@ -8,6 +8,8 @@ import { Settings } from "../../interfaces/Settings.interface";
 @Injectable()
 export class SettingsProvider {
 
+  private readonly storageKey: string = 'settings';
+
   settings: Settings = null;
   private observer: Observer<Settings> = null;
 
@@ -25,7 +27,7 @@ export class SettingsProvider {
     return new Observable<Settings>((observer: Observer<any>) => {
       this.observer = observer;
 
-      this.storage.get('settings').then((settings: Settings) => {
+      this.storage.get(this.storageKey).then((settings: Settings) => {
         this.settings = settings || {
           language: 'de',
           music: true,
@@ -45,7 +47,7 @@ export class SettingsProvider {
     if (this.settings === null) return;
 
     // Update and write to storage
-    void this.storage.set('settings', Object.assign(this.settings, settings));
+    void this.storage.set(this.storageKey, Object.assign(this.settings, settings));
 
     // Notify subscribers
     this.observer.next(this.settings);

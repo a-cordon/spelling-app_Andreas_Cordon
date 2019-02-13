@@ -38,5 +38,13 @@
     "TIME": "Zeit",
     "NEW_GAME": "Neues Spiel",
     "BACK": "Zurück zum Startbildschirm"
+  },
+  "BestGamesPage": {
+    "TITLE": "Beste Spiele",
+    "NO_BEST_GAMES": "Keine Spiele vorhanden",
+    "RESET_GAMES": "Punktestand löschen",
+    "CONFIRM_DELETE": "Alle Spiele löschen?",
+    "DELETE_BEST_GAMES": "Löschen",
+    "ABORT_DELETE": "Abbrechen"
   }
 }
