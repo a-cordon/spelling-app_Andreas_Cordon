@@ -1,0 +1,51 @@
+<ion-header no-border>
+  <ion-navbar hideBackButton transparent>
+    <ion-title text-center>{{ 'GamePage.LEVEL' | translate }} {{ level }}</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+  <div padding ion-fixed>
+    <div class="spellApp-timerDigitBox">
+      <div class="spellApp-pauseButton">
+        <button
+          ion-button
+          outline
+          icon-only
+          (click)="pauseGame()">
+          <ion-icon name="pause"></ion-icon>
+        </button>
+      </div>
+      <div>
+        <ion-icon name="time"></ion-icon>
+        <span class="spellApp-timerLabel">{{ timer.minutes | twoDigit }}</span> :
+        <span class="spellApp-timerLabel">{{ timer.seconds | twoDigit }}</span>
+      </div>
+    </div>
+    <div class="spellApp-pointsBox" [class.negative]="points < 0">
+      <!--TODO: don't let the label move when points number gets bigger-->
+      {{ 'GamePage.POINTS' | translate }}:
+      {{ points }}
+    </div>
+    <div class="spellApp-actionBox">
+      <div class="spellApp-imageBox">
+        <img [src]="spellWords[spellWordIndex].image">
+      </div>
+      <div class="spellApp-wordIndicator">
+        {{ indicateSpellword }}
+      </div>
+      <div class="spellApp-lettersBox">
+        <button
+          ion-button
+          outline
+          [disabled]="letter.disabled"
+          [class.disabled]="letter.disabled"
+          class="spellApp-singleLetter"
+          *ngFor="let letter of letters"
+          (click)="onLetterClicked(letter)">
+          {{ letter.letter }}
+        </button>
+      </div>
+    </div>
+  </div>
+</ion-content>

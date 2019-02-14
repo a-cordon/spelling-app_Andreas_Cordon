@@ -1,0 +1,50 @@
+{
+  "Languages": {
+    "DE": "Deutsch",
+    "EN": "Englisch"
+  },
+  "Spellwords": {
+    "CAT": "Katze",
+    "DOG": "Hund",
+    "MOUSE": "Maus",
+    "POLARBEAR": "Eisbär",
+    "TIGER": "Tiger"
+  },
+  "SettingsPage": {
+    "SETTINGS": "Einstellungen",
+    "LANGUAGE": "Sprache",
+    "PLEASE_CHOOSE": "Bitte wählen",
+    "MUSIC": "Musik",
+    "SOUND": "Ton",
+    "ON": "An",
+    "OFF": "Aus"
+  },
+  "StartPage": {
+    "SPELLINGAPP": "Buchstabierapp",
+    "PLAY": "Spielen",
+    "HIGHSCORES": "Beste Spiele",
+    "SETTINGS": "Einstellungen"
+  },
+  "GamePage": {
+    "LEVEL": "Level",
+    "POINTS": "Punkte",
+    "GAME_PAUSED": "Spiel pausiert",
+    "END_GAME": "Spiel beenden",
+    "RESUME": "Weiter"
+  },
+  "WinnerPage": {
+    "TITLE": "Geschafft!",
+    "POINTS": "Punkte",
+    "TIME": "Zeit",
+    "NEW_GAME": "Neues Spiel",
+    "BACK": "Zurück zum Startbildschirm"
+  },
+  "BestGamesPage": {
+    "TITLE": "Beste Spiele",
+    "NO_BEST_GAMES": "Keine Spiele vorhanden",
+    "RESET_GAMES": "Punktestand löschen",
+    "CONFIRM_DELETE": "Alle Spiele löschen?",
+    "DELETE_BEST_GAMES": "Löschen",
+    "ABORT_DELETE": "Abbrechen"
+  }
+}

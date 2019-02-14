@@ -1,0 +1,16 @@
+page-settings {
+  /*TODO: an buchstabierapp anpassen!!!*/
+  .buchstabierapp-item--formItem {
+    margin-bottom: 24px !important;
+
+    & + p {
+      color: color($colors, danger);
+      margin-top: -16px;
+      font-size: medium;
+    }
+
+    ion-label ion-icon {
+      margin-right: 8px;
+    }
+  }
+}

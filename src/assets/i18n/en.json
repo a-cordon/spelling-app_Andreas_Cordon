@@ -1,0 +1,50 @@
+{
+  "Languages": {
+    "DE": "German",
+    "EN": "English"
+  },
+  "Spellwords": {
+    "CAT": "Cat",
+    "DOG": "Dog",
+    "MOUSE": "Mouse",
+    "POLARBEAR": "Polarbear",
+    "TIGER": "Tiger"
+  },
+  "SettingsPage": {
+    "SETTINGS": "Settings",
+    "LANGUAGE": "Language",
+    "PLEASE_CHOOSE": "Please choose",
+    "MUSIC": "Music",
+    "SOUND": "Sound",
+    "ON": "On",
+    "OFF": "Off"
+  },
+  "StartPage": {
+    "SPELLINGAPP": "Spellingapp",
+    "PLAY": "Play",
+    "HIGHSCORES": "Best Games",
+    "SETTINGS": "Settings"
+  },
+  "GamePage": {
+    "LEVEL": "Level",
+    "POINTS": "Points",
+    "GAME_PAUSED": "Game paused",
+    "END_GAME": "End game",
+    "RESUME": "Resume"
+  },
+  "WinnerPage": {
+    "TITLE": "YOU MADE IT!",
+    "POINTS": "Points",
+    "TIME": "Time",
+    "NEW_GAME": "New Game",
+    "BACK": "Back to startscreen"
+  },
+  "BestGamesPage": {
+    "TITLE": "Best Games",
+    "NO_BEST_GAMES": "No games played",
+    "RESET_GAMES": "Delete highscores",
+    "CONFIRM_DELETE": "Really delete all games?",
+    "DELETE_BEST_GAMES": "Delete",
+    "ABORT_DELETE": "Cancel"
+  }
+}

@@ -1,5 +1,7 @@
 {
-  "name": "buchstabierapp",
-  "integrations": {},
+  "name": "SpellingApp",
+  "integrations": {
+    "cordova": {}
+  },
   "type": "ionic-angular"
 }

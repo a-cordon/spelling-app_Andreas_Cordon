@@ -1,0 +1,17 @@
+page-best-games {
+  .spellApp-bestGamesPage--empty {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 72vh;
+  }
+
+  ion-item {
+    ion-label {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+    }
+  }
+}

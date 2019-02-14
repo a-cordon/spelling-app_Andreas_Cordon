@@ -1,0 +1,107 @@
+page-game {
+  [ion-fixed] {
+    height: 100%;
+    width: 100%;
+  }
+
+  .toolbar-title {
+    font-size: 2.7rem;
+  }
+
+  .spellApp-timerDigitBox {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 0 20px;
+    font-size: 18px;
+    color: color($colors, mono);
+
+    .spellApp-pauseButton {
+      button {
+        font-size: 66%;
+        border-radius: 50%;
+        color: color($colors, dark);
+        border-color: color($colors, dark);
+        //background-color: darken(color($colors, light), 30);
+      }
+    }
+
+    .spellApp-timerLabel {
+      &:first-of-type {
+        padding-left: 8px;
+        padding-right: 2px;
+      }
+
+      &:not(:first-of-type) {
+        padding: 0 2px;
+      }
+    }
+  }
+
+  .spellApp-pointsBox {
+    display: flex;
+    justify-content: flex-end;
+    margin: 16px 20px;
+    font-size: 18px;
+
+    &.negative {
+      color: color($colors, danger);
+    }
+  }
+
+  .spellApp-actionBox {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    height: 72vh;
+
+    .spellApp-imageBox {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 200px;
+
+      img {
+        height: 100%;
+        object-fit: contain;
+      }
+    }
+
+    .spellApp-wordIndicator {
+      display: flex;
+      justify-content: center;
+      font-size: 32px;
+      font-weight: 600;
+      letter-spacing: 2px;
+      color: color($colors, dark);
+      margin-top: 16px;
+      height: 38px;
+    }
+
+    .spellApp-lettersBox {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-evenly;
+      margin: 16px 0;
+
+      button[disabled] {
+        color: color($colors, danger);
+        border-color: color($colors, danger);
+        opacity: 1;
+      }
+
+      .spellApp-singleLetter {
+        border: 2px solid color($colors, dark);
+        border-radius: 8px;
+        text-transform: uppercase;
+        font-weight: bold;
+        display: block;
+        font-size: 32px;
+        color: color($colors, dark);
+        padding: 8px 12px;
+        height: auto;
+        margin: auto;
+      }
+    }
+  }
+}
