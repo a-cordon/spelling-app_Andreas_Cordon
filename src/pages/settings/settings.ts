@@ -5,6 +5,12 @@ import { SettingsProvider } from "../../providers/settings/settings";
 import { SpellwordProvider } from "../../providers/spellword/spellword";
 import { Settings } from "../../interfaces/Settings.interface";
 
+/**
+ * A class for the settings page
+ * @author Andreas Cordon
+ * @version 0.1
+ */
+
 @IonicPage()
 @Component({
   selector: 'page-settings',
@@ -58,7 +64,7 @@ export class SettingsPage {
 
   /**
    * Toggles music and writes it to local storage
-   * @param event
+   * @param event that has been triggered by user
    */
   toggleMusic(event: boolean) {
     this.isMusicActive = event;
@@ -67,7 +73,7 @@ export class SettingsPage {
 
   /**
    * Toggles sound and writes it to local storage
-   * @param event
+   * @param event that has been triggered by user
    */
   toggleSound(event: boolean) {
     this.isSoundActive = event;

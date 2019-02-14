@@ -1,5 +1,11 @@
 import { Pipe, PipeTransform } from '@angular/core';
 
+/**
+ * A class for the two-digit pipe
+ * @author Andreas Cordon
+ * @version 0.1
+ */
+
 @Pipe({
   name: 'twoDigit',
 })

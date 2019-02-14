@@ -8,6 +8,12 @@ import { Timer } from "../../models/timer";
 import { TranslateService } from "@ngx-translate/core";
 import { SpellwordProvider } from "../../providers/spellword/spellword";
 
+/**
+ * A class for the game page
+ * @author Andreas Cordon
+ * @version 0.1
+ */
+
 @IonicPage()
 @Component({
   selector: 'page-game',
@@ -120,7 +126,7 @@ export class GamePage {
   /**
    * @TODO: keep position of letter if it is a double-letter
    * Shuffles an array in place
-   * @param array
+   * @param array to shuffle
    */
   private shuffleArray(array) {
     let j, x, i;
@@ -136,7 +142,7 @@ export class GamePage {
 
   /**
    * Takes a letter, compares it to the searched letter and initiates further action
-   * @param letter
+   * @param letter that has been clicked by the user
    */
   public onLetterClicked(letter): void {
     if (this.getSearchedLetter().letter === letter.letter) {

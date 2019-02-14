@@ -2,6 +2,12 @@ import { Injectable } from '@angular/core';
 import { Storage } from "@ionic/storage";
 import { BestGame } from "../../interfaces/BestGame.interface";
 
+/**
+ * A class for the best-games provider
+ * @author Andreas Cordon
+ * @version 0.1
+ */
+
 @Injectable()
 export class BestGamesProvider {
 
@@ -18,7 +24,7 @@ export class BestGamesProvider {
    * 22 -> 22 Seconds
    * 105 -> 1 Minute 05 Seconds
    * 1253 -> 12 Minutes 53 Seconds
-   * @param bestGame
+   * @param bestGame as game that should be saved to local storage
    */
   public async saveToBestGame(bestGame: BestGame): Promise<void> {
     await this.storage.ready();
@@ -31,8 +37,8 @@ export class BestGamesProvider {
   }
 
   /**
-   * @TODO: write more easy
    * Fetches the list of Best Games from the local storage
+   * @returns {bestGames} as Promise of an Array of BestGames
    */
   public async getBestGamesInCorrectOrder(): Promise<BestGame[]> {
     await this.storage.ready();

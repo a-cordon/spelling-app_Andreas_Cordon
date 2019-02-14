@@ -3,6 +3,12 @@ import { Injectable } from '@angular/core';
 import { TranslateService } from "@ngx-translate/core";
 import { SpellWord } from "../../interfaces/SpellWord.interface";
 
+/**
+ * A class for the spellword provider
+ * @author Andreas Cordon
+ * @version 0.1
+ */
+
 @Injectable()
 export class SpellwordProvider {
 
@@ -12,6 +18,9 @@ export class SpellwordProvider {
               private translateService: TranslateService) {
   }
 
+  /**
+   * @returns {Promise<SpellWord[]>} a Promise of an Array of words to spell in the game
+   */
   public async loadSpellwords(): Promise<SpellWord[]> {
     const labels = await this.translateService.get('Spellwords').toPromise();
 

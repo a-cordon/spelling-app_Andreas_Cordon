@@ -4,6 +4,12 @@ import { BestGamesProvider } from "../../providers/best-games/best-games";
 import { BestGame } from "../../interfaces/BestGame.interface";
 import { TranslateService } from "@ngx-translate/core";
 
+/**
+ * A class for the best-games page
+ * @author Andreas Cordon
+ * @version 0.1
+ */
+
 @IonicPage()
 @Component({
   selector: 'page-best-games',

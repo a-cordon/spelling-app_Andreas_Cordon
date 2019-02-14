@@ -1,3 +1,8 @@
+/**
+ * A Timer to use inside the App
+ * @author Andreas Cordon
+ * @version 0.1
+ */
 export class Timer {
 
   public minutes: number = 0;

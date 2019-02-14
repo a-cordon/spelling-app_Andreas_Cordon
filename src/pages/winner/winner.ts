@@ -3,6 +3,12 @@ import { IonicPage, NavParams, ViewController } from 'ionic-angular';
 import { BestGamesProvider } from "../../providers/best-games/best-games";
 import { BestGame } from "../../interfaces/BestGame.interface";
 
+/**
+ * A class for the winner page
+ * @author Andreas Cordon
+ * @version 0.1
+ */
+
 @IonicPage()
 @Component({
   selector: 'page-winner',
@@ -35,7 +41,7 @@ export class WinnerPage {
    * 22 -> 22 Seconds
    * 105 -> 1 Minute 05 Seconds
    * 1253 -> 12 Minutes 53 Seconds
-   * @param newGame
+   * @param newGame to give information if a new game should be started
    */
   public dismissModal(newGame: boolean = false): void {
     const bestGame: BestGame = {

@@ -5,6 +5,12 @@ import { of as observableOf } from 'rxjs/observable/of'
 import { Observer } from "rxjs/Observer";
 import { Settings } from "../../interfaces/Settings.interface";
 
+/**
+ * A class for the settings provider
+ * @author Andreas Cordon
+ * @version 0.1
+ */
+
 @Injectable()
 export class SettingsProvider {
 
@@ -18,7 +24,7 @@ export class SettingsProvider {
 
   /**
    * Load and observe settings
-   * @returns {Observable<Settings>}
+   * @returns {Observable<Settings>} an observable that looks out for language changes
    */
   load(): Observable<Settings> {
     if (this.observer !== null &&
@@ -41,7 +47,7 @@ export class SettingsProvider {
 
   /**
    * Writes a settings object in the local storage
-   * @param {Settings} settings
+   * @param {Settings} settings to be stored to local storage
    */
   save(settings: Settings): void {
     if (this.settings === null) return;
